@@ -180,7 +180,7 @@ path transforms is
 
 Parameters can be anonymous with `{}`; or indexed `{idx}` or named `{name}`
 
-```
+```yaml
 # rename field
 
 attr1 : attr2
@@ -200,6 +200,13 @@ name.{} : {}
 swap.{1}.{2} : swapped.{2}.{1}
 
 contact.{use}.{system} : swapped.{system}.{use}
+
+```
+There is special name for value to use in path transformation {%} and bidirectional function can be applied to it
+
+```yaml
+
+path.path : path.path.{%function-name}
 
 ```
 
