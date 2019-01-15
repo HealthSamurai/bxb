@@ -1,6 +1,6 @@
 # bxb
 
-bidirectional transformation library
+bidirectional transformations approach
 
 
 ## Motivation
