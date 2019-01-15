@@ -71,18 +71,23 @@ into path/value pairs:
 
 T(pvs; prog)=> pvs
 
+### Singular transformation
+
+transform source path/value pair into target path/value and backward
 
 ### Basic transformation
 
-In special case transformation consist of two independent pure transformations
+In special case transformation consist of two independent  transformations
 
 * source path => target path
 * source value => target value
 
-For example;
+For example:
 
+```yaml
 path: name.given => first_name
 value: prefix/unfix  pre, s => "${pre}_{s}" and back "${pre}_{s}" => s
+```
 
 Each transformation operation (path and value) are two way function (i.e. two functions)
 
@@ -90,8 +95,8 @@ target <- op params -> source
 
 ### Parametrized transformation
 
-generalizing basic transformation transormation can map
-set of path/value pairs into set of path/value pairs
+generalizing basic transformation transormation can describe a 
+set of transformations
 
 One of special case is parametrized path's. For example
 
@@ -110,7 +115,7 @@ name.0.given => (# = 0) => name.0.first_name
 name.1.given => (# = 1) => name.1.first_name
 ```
 
-### Dependent transformation
+### Value Dependent transformation
 
 In more general case, path transformation can depend on value and value transformation can depend on path.
 In simple words data can move to structure and backward, consider this:
@@ -130,5 +135,37 @@ mail: [<mail>]
 
 ```
 
+###  Dependent transformation
+
+In more general case transformation is map set of path/value pairs to set of path/value pairs
+i.e. one path/value pair transformation depends on another
+
+TODO: investigate reversability properties
 
 
+## Abstract machine
+
+Bx programm looks like list of transformations:
+
+```yaml
+t1: tr-type params
+t2: tr-type params
+...
+
+```
+
+To transform forward data structure represented in
+canonical form; and operations applied one by one; where result of previous
+operation is input for next one.
+Backward transformation is apply same rules in reverse mode in reverse order.
+
+pseudo code:
+
+```py
+direction = forward or backward
+data = cannonical input
+operations = if forward? then operations else reverse(operations)
+for op in operations
+   data = APPLY( data, op, direction)
+return data
+```
