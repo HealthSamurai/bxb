@@ -169,3 +169,37 @@ for op in operations
    data = APPLY( data, op, direction)
 return data
 ```
+
+
+## Path transformations
+
+path transforms is
+
+* match source path pattern (get params values)
+* apply params valus to target path
+
+Parameters can be anonymous with `{}`; or indexed `{idx}` or named `{name}`
+
+```
+# rename field
+
+attr1 : attr2
+
+{attr1: <v1>, prop: <v2>} => {attr2: <v1>, prop: <v2>}
+
+# change depth
+
+first_name :  name.given
+last_name  :  name.family
+
+
+# parametrized
+
+name.{} : {}
+
+swap.{1}.{2} : swapped.{2}.{1}
+
+contact.{use}.{system} : swapped.{system}.{use}
+
+```
+
