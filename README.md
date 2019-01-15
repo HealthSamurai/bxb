@@ -109,10 +109,10 @@ a specific value, becomming a parameter passed into resulting path.
 Example:
 
 ```yaml
-name.#.given => (# = ?) => name.#.first_name
+name.{}.given => ({} = ?) => name.{}.first_name
 
-name.0.given => (# = 0) => name.0.first_name
-name.1.given => (# = 1) => name.1.first_name
+name.{}.given => ({} = 0) => name.0.first_name
+name.{}.given => ({} = 1) => name.z.first_name
 ```
 
 ### Value Dependent transformation
@@ -202,11 +202,15 @@ swap.{1}.{2} : swapped.{2}.{1}
 contact.{use}.{system} : swapped.{system}.{use}
 
 ```
-There is special name for value to use in path transformation {%} and bidirectional function can be applied to it
+There is special name for value to use in path transformation {%%} and bidirectional function can be applied to it or other params
 
 ```yaml
 
-path.path : path.path.{%function-name}
+path.path : path.path.{func(%%)}
+
+path.% : path.{prefix('pre_', %)}
+# if we reverse it
+path.% : path.{un-prefix('pre_', %)}
 
 ```
 
