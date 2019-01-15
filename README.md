@@ -48,7 +48,7 @@ birthDate: '1980'
 
 name.0.given.0  's'
 name.0.given.1  's'
-birthDate: '1980'
+birthDate       '1980'
 ```
 
 ### Transformation flow
