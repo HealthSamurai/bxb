@@ -95,7 +95,7 @@ set of path/value pairs into set of path/value pairs
 
 One of special case is parametrized path's. For example
 
-```
+```yaml
 name.#.given => name.#.first_name
 ```
 Where `#` is a place holder, which in concrete transformation will get
@@ -103,7 +103,7 @@ a specific value, becomming a parameter passed into resulting path.
 
 Example:
 
-```
+```yaml
 name.#.given => (# = ?) => name.#.first_name
 
 name.0.given => (# = 0) => name.0.first_name
@@ -115,7 +115,7 @@ name.1.given => (# = 1) => name.1.first_name
 In more general case, path transformation can depend on value and value transformation can depend on path.
 In simple words data can move to structure and backward, consider this:
 
-```
+```yaml
 - system: phone
   value: <phone-1>
 - system: phone
