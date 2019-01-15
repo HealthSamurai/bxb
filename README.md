@@ -164,7 +164,7 @@ pseudo code:
 ```py
 direction = forward or backward
 data = canonical(input)
-operations = if forward? then operations else reverse(operations)
+operations = if forward then operations else reverse(operations)
 for op in operations
    data = APPLY( data, op, direction)
 return data
