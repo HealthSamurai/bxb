@@ -214,3 +214,10 @@ path.% : path.{un-prefix('pre_', %)}
 
 ```
 
+
+## Parametrized Path Patterns
+
+Element: (path, value, metadata)
+Path: collection of key, index, expression
+Value: primitive or map or collection or set
+
