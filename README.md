@@ -226,7 +226,9 @@ Value:       primitive | map | collection | set
 Transform:   source-path target-path ; expressions | value transform
 
 
-
+```
 telecom.(i) <=> (sys) | sys (get % :system) | (assoc % :ord i)
 
 contact.(sys).(use) <=> telecom | (map :value % :system sys :use use)
+
+```
