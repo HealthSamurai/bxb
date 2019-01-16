@@ -217,9 +217,16 @@ path.% : path.{un-prefix('pre_', %)}
 
 ## Parametrized Path Patterns
 
-Element: (path, value, metadata)
+Element:     (path, value, metadata)
 
-Path: collection of key, index, expression
+Path:        [item item ...], where item = key | index | expression
 
-Value: primitive or map or collection or set
+Value:       primitive | map | collection | set
 
+Transform:   source-path target-path ; expressions | value transform
+
+
+
+telecom.(i) <=> (sys) | sys (get % :system) | (assoc % :ord i)
+
+contact.(sys).(use) <=> telecom | (map :value % :system sys :use use)
