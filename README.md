@@ -1,6 +1,6 @@
 # bxb
 
-bidirectional transformation & smart diff/patch library
+smart diff/patch  &  bidirectional transformation  library
 
 
 # Motivation
