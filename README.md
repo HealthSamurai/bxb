@@ -17,3 +17,5 @@ target = xget(schema, mapping, src)
 new-src = xput(mapping, new-target, old-src)
 diff = xdiff(mapping, new-target, old-src)
 ```
+
+Run all test with `clj -A:test`.
